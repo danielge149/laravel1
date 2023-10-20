@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Academica</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -318,15 +318,30 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'Sistema academico'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Facultades',
+            'url'  => '/facultades/listado',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Programas',
+            'url'  => '/programas/listado',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Docentes',
+            'url'  => '/docentes/listado',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Estudiantes',
+            'url'  => '/estudiantes/listado',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Materias',
+            'url'  => '/materias/listado',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
