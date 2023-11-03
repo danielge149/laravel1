@@ -10,8 +10,8 @@
 
 @section('content')
 
-    <div style="text-align: right;">
-        <button type="button" class="btn btn-success">Registrar</button>
+    <div class="d-grid gap-2 d-md-block">
+        <a class="btn btn-primary" href="/facultades/registrar" type="button">Agregar</a> 
     </div>
  
     <table class="table table-success table-striped">
@@ -24,15 +24,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>
-                    <button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                </td>
-            </tr>
+            @php
+                $i=1;
+            @endphp
+            @foreach($faculty as $f)
+                <tr>
+                    <th scope="row">{{$i}}</th>
+                    <td>{{$f->codfacultad}}</td>
+                    <td>{{$f->nomfacultad}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                    @php
+                        $i=$i+1;
+                    @endphp
+                </tr>
+            @endforeach
         </tbody>
     </table>
 @stop
