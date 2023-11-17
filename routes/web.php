@@ -30,6 +30,9 @@ Route::get('/', function () {
 Route::get('/dashboard', [HomeController::class,'index']
 )->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
+
 //rutas
 Route::get('/facultades/listado', [FacultadesController::class,'index']
 )->middleware(['auth', 'verified'])->name('listado_facultades');
@@ -42,6 +45,15 @@ Route::post('/facultades/registrar', [FacultadesController::class, 'registrar']
 
 Route::get('/facultades/eliminar/{id}', [FacultadesController::class, 'eliminar']
 )->middleware(['auth', 'verified'])->name('eliminar_fac');
+
+Route::get('/facultades/editar/{id}', [FacultadesController::class, 'form_edicion']
+)->middleware(['auth', 'verified'])->name('editar_fac');
+
+Route::post('/facultades/editar/{id}', [FacultadesController::class, 'editar']
+)->middleware(['auth', 'verified'])->name('editar_fac');
+
+
+
 
 Route::get('/programas/listado', [ProgramasController::class,'index']
 )->middleware(['auth', 'verified'])->name('listado_programas');
