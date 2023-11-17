@@ -24,4 +24,10 @@ class FacultadesController extends Controller
         $facultad->save();
         return redirect()->route('listado_facultades');
     }
+
+    public function eliminar($id){
+        $facultad = Faculty::findorFail($id);
+        $facultad->delete();
+        return redirect()->route('listado_facultades');
+    }
 }

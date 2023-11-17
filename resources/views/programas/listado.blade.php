@@ -8,15 +8,15 @@
 @stop
 
 @section('content')
-<div style="text-align: right;">
-        <button type="button" class="btn btn-success">Registrar</button>
+    <div class="d-grid gap-2 d-md-block">
+        <a class="btn btn-primary" href="/programas/registrar" type="button">Agregar</a> 
     </div>
  
     <table class="table table-success table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Codigp</th>
+                <th scope="col">Codigo</th>
                 <th scope="col">Programa</th>
                 <th scope="col">facultad</th>
                 <th scope="col">Opciones</th>
@@ -31,7 +31,7 @@
                     <th scope="row">{{$i}}</th>
                     <td>{{$p->codprograma}}</td>
                     <td>{{$p->nomprograma}}</td>
-                    <td>{{$p->nomfacultad}}</td>
+                    <td>{{$p->facultad}}</td>
                     <td>
                         <button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
                         <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>

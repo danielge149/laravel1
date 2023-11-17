@@ -40,8 +40,17 @@ Route::get('/facultades/registrar', [FacultadesController::class, 'form_registro
 Route::post('/facultades/registrar', [FacultadesController::class, 'registrar']
 )->middleware(['auth', 'verified'])->name('registrar_fac');
 
+Route::get('/facultades/eliminar/{id}', [FacultadesController::class, 'eliminar']
+)->middleware(['auth', 'verified'])->name('eliminar_fac');
+
 Route::get('/programas/listado', [ProgramasController::class,'index']
 )->middleware(['auth', 'verified'])->name('listado_programas');
+
+Route::get('/programas/registrar', [ProgramasController::class, 'form_registro']
+)->middleware(['auth', 'verified'])->name('form_registro_pro');
+
+Route::post('/programas/registrar', [ProgramasController::class, 'registrar']
+)->middleware(['auth', 'verified'])->name('registrar_pro');
 
 Route::get('/estudiantes/listado', [EstudiantesController::class,'index']
 )->middleware(['auth', 'verified'])->name('listado_estudiantes');
@@ -51,6 +60,13 @@ Route::get('/materias/listado', [MateriasController::class,'index']
 
 Route::get('/docentes/listado', [DocentesController::class,'index']
 )->middleware(['auth', 'verified'])->name('listado_docentes');
+
+Route::get('/docentes/registrar', [DocentesController::class, 'form_registro']
+)->middleware(['auth', 'verified'])->name('form_registro_doc');
+
+Route::post('/docentes/registrar', [DocentesController::class, 'registrar']
+)->middleware(['auth', 'verified'])->name('registrar_doc');
+
 
 
 Route::middleware('auth')->group(function () {
