@@ -8,7 +8,6 @@ use App\Models\Teacher;
 
 class DocentesController extends Controller
 {
-    //
     public function index()
     {
         $profesores = DB::table('profesor')->get();
@@ -46,5 +45,4 @@ class DocentesController extends Controller
 
         return redirect()->route('listado_docentes')->with('success', 'Docente registrado correctamente');
     }
-
 }

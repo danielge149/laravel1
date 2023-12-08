@@ -4,28 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Program;// Asegúrate de importar el modelo Programa
+use Illuminate\Validation\Rule;
+use App\Models\Program;
 use App\Models\Faculty;
 
 class ProgramasController extends Controller
 {
-    public function index(){
-        $programas = DB::table('programa')->get();// Obtener todos los programas
+    /*
+    public function index()
+    {
+        $programas = DB::table('programa')
+                    ->join('facultad', 'facultad', '=', 'codfacultad')
+                    ->get();
+
         return view('programas.listado', ['program' => $programas]);
     }
+    */
 
-    public function form_registro(){
-        $facultades = DB::table('facultad')->get();
-        return view('programas.form_registro',['faculty'=>$facultades]);
+
+    public function index()
+    {
+        $query = Program::all(); // select * from programas
+        return view('programas.listado', ['program' => $query]);
     }
 
-    public function registrar(Request $request){
-        $programa = new Program();
-        $programa->codprograma = $request->input('cod_programa');
-        $programa->nomprograma = $request->input('nom_programa');
-        $programa->facultad = $request->input('nomfacultad');
-        $programa->save();
 
-        return redirect()->route('listado_programas');
+    public function form_registro()
+    {
+        $query = Faculty::all();
+        return view('programas.form_registro', compact('query'));
+    }
+
+    public function registrar()
+    {
+        
     }
 }

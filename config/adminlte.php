@@ -311,14 +311,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'Sistema academico'],
+        ['header' => 'Sistema Academico'],
         [
             'text' => 'Facultades',
             'url'  => '/facultades/listado',
@@ -382,6 +375,7 @@ return [
                 ],
             ],
         ],
+        
         ['header' => 'labels'],
         [
             'text'       => 'important',
@@ -399,6 +393,7 @@ return [
             'url'        => '#',
         ],
     ],
+    
 
     /*
     |--------------------------------------------------------------------------

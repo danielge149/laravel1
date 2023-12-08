@@ -1,5 +1,4 @@
 
-
 @extends('adminlte::page')
 
 @section('title', 'Docentes')
@@ -18,7 +17,8 @@
     @foreach($teacher as $p)
     <div class="col-md-4 mb-4">
         <div class="card" style="width: 18rem;">
-            
+            <!-- Puedes personalizar la imagen según tus necesidades -->
+            <img src="{{ asset('img/docente.jpg') }}" class="card-img-top" alt="Image">
             <div class="card-body ">
                 <p class="card-text ">
                     <strong>Código:</strong> {{$p->codprofesor}}<br>
@@ -40,6 +40,3 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
-
-
-    

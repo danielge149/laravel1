@@ -4,53 +4,75 @@
 @section('title', 'Programas')
 
 @section('content_header')
-    <h1>Listado de programas</h1>
+    <h1>Listado de Programas</h1>
+
 @stop
 
 @section('content')
     <div class="d-grid gap-2 d-md-block">
-        <a class="btn btn-primary" href="/programas/registrar" type="button">Agregar</a> 
+        <a type="button" href="{{route('form_registro_prg')}}"  class="btn btn-danger">adicionar</a>
     </div>
- 
-    <table class="table table-success table-striped">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Programa</th>
-                <th scope="col">facultad</th>
-                <th scope="col">Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @php
-                $i=1;
+    <br>
+    <table class="table" id="table-programs">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Codigo</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Facultad</th>
+        <th scope="col">Opcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @php 
+            $i = 1;
+        @endphp
+
+        @foreach($program as $p)
+        <tr>
+            <th scope="row">{{$i}}</th>
+            <td> {{$p->codprograma}} </td>
+            <td> {{$p->nomprograma}} </td>
+            <td> {{$p->faculties->nomfacultad}} </td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-success" type="button">Editar</button>
+                    <button class="btn btn-danger" type="button">Eliminar</button>
+                </div>
+            </td>
+
+            @php 
+                $i = $i + 1;
             @endphp
-            @foreach($program as $p)
-                <tr>
-                    <th scope="row">{{$i}}</th>
-                    <td>{{$p->codprograma}}</td>
-                    <td>{{$p->nomprograma}}</td>
-                    <td>{{$p->facultad}}</td>
-                    <td>
-                        <button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                    @php
-                        $i=$i+1;
-                    @endphp
-                </tr>
-            @endforeach
-        </tbody>
+        </tr>
+        @endforeach
+       
+    </tbody> 
     </table>
+
+
+
+
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 @stop
 
 @section('js')
-       <script> console.log('Hi!'); </script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#table-programs').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json"
+                }
+            });;
+        });
+    </script>
 @stop
-    
-    
+
+
+
+
